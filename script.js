@@ -12,7 +12,7 @@ const collection = [
     {
         name:"Charizard",
         genre:["Fire","Flying"],
-        Weakness:["Water","Electric","Rock"] ,
+        weakness:["Water","Electric","Rock"] ,
         evolution:"Evolution de Chameleon",
         image:"./accets/006.png",
         imageSousEvo :"./accets/005.png",
@@ -21,7 +21,7 @@ const collection = [
     },
     {
         name:"Blastoise",
-        genre:"Water",
+        genre:["Water"],
         weakness:["Grass","Electric"],
         evolution:"Evolution de Wartortle",
         image:"./accets/009.png",
@@ -61,8 +61,8 @@ const collection = [
     },
     {
         name:"Raticate",
-        genre:"Normal",
-        weakness:"Fighting",
+        genre:["Normal"],
+        weakness:["Fighting"],
         evolution:"Evolution de Rattata ",
         image:"./accets/020.png",
         imageSousEvo :"./accets/019.png",
@@ -81,7 +81,7 @@ const collection = [
     },
     {
         name:"Arbok",
-        genre:"Poison",
+        genre:["Poison"],
         weakness:["Psychic","Ground"],
         evolution:"Evolution de Ekans",
         image:"./accets/024.png",
@@ -91,8 +91,8 @@ const collection = [
     },
     {
         name:"Raichu",
-        genre:"Electric",
-        weakness:"Ground",
+        genre:["Electric"],
+        weakness:["Ground"],
         evolution:"Evolution de Pickachu",
         image:"./accets/026.png",
         imageSousEvo :"./accets/025.png",
@@ -101,5 +101,79 @@ const collection = [
     },
 ];
 
+function addElementsMAin(Array){
+    const selectMain = document.querySelector("main");
+    for(let x =0; x < Array.length; x++){
+        const addArticle = document.createElement("article");
+        selectMain.appendChild(addArticle);
+        addArticle.appendChild(addImageTop(Array[x]));
+        addArticle.appendChild(addType(Array[x]));
+        addArticle.appendChild(addWeakness(Array[x]));
+        addArticle.appendChild(addSousEvo(Array[x]));
+        addArticle.appendChild(addDescrip(Array[x]));
+        addArticle.appendChild(addLink(Array[x]));
+    }
+}
+
+function addImageTop(Array){
+   const addPrincImage = document.createElement("img");
+    addPrincImage.src = Array.image;
+    addPrincImage.alt = `image de ${Array.name}`;
+    return addPrincImage
+}
+
+function addType(Array){
+    const addDiv = document.createElement("div");
+    const addH3 = document.createElement("h4");
+    addH3.innerText = "Type";
+    addDiv.appendChild(addH3);
+    for(let i = 0; i < Array.genre.length; i++){
+        const addElementListe = document.createElement("p");
+        addElementListe.innerText = Array.genre[i];
+        addDiv.appendChild(addElementListe);
+    }
+    return addDiv;
+}
+
+function addWeakness(Array){
+    const addDiv = document.createElement("div");
+    const addH3 = document.createElement("h4");
+    addH3.innerText = "Weakness";
+    addDiv.appendChild(addH3);
+   for(let i = 0; i < Array.weakness.length; i++){
+        const addweakness = document.createElement("p");
+        addweakness.innerText = Array.weakness[i];
+        addDiv.appendChild(addweakness);
+    }
+    return addDiv;
+}
+
+function addSousEvo(Array){
+    const addDiv = document.createElement("div");
+    const addparagraph = document.createElement("p");
+    addparagraph.innerText = Array.evolution;
+    addDiv.appendChild(addparagraph);
+    const addImage = document.createElement("img");
+    addImage.src = Array.imageSousEvo;
+    addImage.alt = "";
+    addImage.width = "50";
+    addImage.height = "50"
+    addDiv.appendChild(addImage);
+    return addDiv;
+}
+
+function addDescrip(Array){
+    const addParagraph = document.createElement("p")
+    addParagraph.innerText = Array.descrition;
+    return addParagraph;
+}
+
+function addLink(Array){
+    const addlink = document.createElement("a");
+    addlink.href = Array.link;
+    return addlink;
+}
+
+addElementsMAin(collection);
 
 
