@@ -104,9 +104,11 @@ const imgLink = "./accets/pdx.png";
 
 function addElementsMAin(Array){
     const selectMain = document.querySelector("main");
+    
     for(let x =0; x < Array.length; x++){
         const addArticle = document.createElement("article");
         selectMain.appendChild(addArticle);
+        addArticle.setAttribute("class",`Card ${Array[x].name}`);
         addArticle.appendChild(addImageTop(Array[x]));
         addArticle.appendChild(addType(Array[x]));
         addArticle.appendChild(addWeakness(Array[x]));
@@ -121,8 +123,6 @@ function addImageTop(Array){
    const addPrincImage = document.createElement("img");
     addPrincImage.src = Array.image;
     addPrincImage.alt = `image de ${Array.name}`;
-    
-
     switch(Array.genre[0]){
         case "Fire" : addPrincImage.setAttribute("class","fire imageSize"); break;
         case "Grass" :addPrincImage.setAttribute("class","grass imageSize"); break;
@@ -133,19 +133,20 @@ function addImageTop(Array){
         case "Bug": addPrincImage.setAttribute("class","insect imageSize");break;
         case "Electric": addPrincImage.setAttribute("class"," elect imageSize");break;
     }
-       
-
-     return addPrincImage;
+    return addPrincImage;
 }
 
 function addType(Array){
     const addDiv = document.createElement("div");
+    addDiv.setAttribute("class","type");
     const addH3 = document.createElement("h4");
-    addH3.innerText = "Type";
+    
+    addH3.innerText = "Type :";
     addDiv.appendChild(addH3);
     for(let i = 0; i < Array.genre.length; i++){
         const addElementListe = document.createElement("p");
         addElementListe.innerText = Array.genre[i];
+        addElementListe.setAttribute("class",`posElementType${i}`),
         addDiv.appendChild(addElementListe);
     }
     return addDiv;
@@ -153,11 +154,13 @@ function addType(Array){
 
 function addWeakness(Array){
     const addDiv = document.createElement("div");
+    addDiv.setAttribute("class","weakness");
     const addH3 = document.createElement("h4");
-    addH3.innerText = "Weakness";
+    addH3.innerText = "Weakness :";
     addDiv.appendChild(addH3);
    for(let i = 0; i < Array.weakness.length; i++){
         const addweakness = document.createElement("p");
+        addweakness.setAttribute("class",`posElementWeakness${i}`);
         addweakness.innerText = Array.weakness[i];
         addDiv.appendChild(addweakness);
     }
@@ -179,9 +182,14 @@ function addSousEvo(Array){
 }
 
 function addDescrip(Array){
-    const addParagraph = document.createElement("p")
+    const adddiv = document.createElement("div");
+    const addName = document.createElement("h3");
+    addName.innerText = Array.name;
+    adddiv.appendChild(addName);
+    const addParagraph = document.createElement("p");
     addParagraph.innerText = Array.descrition;
-    return addParagraph;
+    adddiv.appendChild(addParagraph);
+    return adddiv;
 }
 
 function addLink(Array){
@@ -198,7 +206,6 @@ function addLink(Array){
 
 function sizeImage(){
     const selectImage = document.querySelectorAll("img");
-
     for(let i = 0; i < selectImage.length; i++){
         selectImage[i].classList.add("imageSize");
     }
