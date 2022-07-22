@@ -100,6 +100,7 @@ const collection = [
         link:"https://www.pokemon.com/us/pokedex/raichu"
     },
 ];
+const imgLink = "./accets/pdx.png";
 
 function addElementsMAin(Array){
     const selectMain = document.querySelector("main");
@@ -113,6 +114,7 @@ function addElementsMAin(Array){
         addArticle.appendChild(addDescrip(Array[x]));
         addArticle.appendChild(addLink(Array[x]));
     }
+
 }
 
 function addImageTop(Array){
@@ -184,7 +186,13 @@ function addDescrip(Array){
 
 function addLink(Array){
     const addlink = document.createElement("a");
+    const imagelink = document.createElement("img");
+    imagelink.src=imgLink;
+    imagelink.alt = "image pokedex";
+    imagelink.width=50;
+    imagelink.height=40;
     addlink.href = Array.link;
+    addlink.appendChild(imagelink);
     return addlink;
 }
 
@@ -192,28 +200,18 @@ function sizeImage(){
     const selectImage = document.querySelectorAll("img");
 
     for(let i = 0; i < selectImage.length; i++){
-        selectImage[i].classList.add("class","imageSize ");
-
+        selectImage[i].classList.add("imageSize");
     }
+    return selectImage;
 }
 
-function imageBackground(Array){
-//     const selectArticle = document.querySelectorAll("article");
-//     const imageSetBackground = selectArticle.querySelector("img");
-    for(let i = 0; i < Array.length; i++){
-        console.log(Array[i].genre[0]);
-        switch(Array[i].genre[0]){
-            case "Fire" : Array[i].image.setAttribute("class","fire"); break;
-            //case "Grass" :imageSetBackground.setAttribute("class","grass"); break;
-        }
-    }
-}
+
 function test(){
     document.body.setAttribute("class",'water');
 }
 
 addElementsMAin(collection);
-sizeImage();
+//sizeImage();
 //imageBackground(collection);
 //test();
 
