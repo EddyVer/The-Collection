@@ -1,6 +1,7 @@
-body{
-    margin: 50px;
-}
+@import './_variable';
+@import './class';
+
+
 header{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -8,8 +9,5 @@ header{
 }
 main{
    display: grid;
-
-}
-.imageHeader{
 
 }

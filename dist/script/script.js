@@ -174,6 +174,13 @@ function addLink(Array){
     return addlink;
 }
 
-addElementsMAin(collection);
+function sizeImage(){
+    const selectImage = document.querySelectorAll("img");
+    for(let i = 0; i < selectImage.length; i++){
+        selectImage[i].setAttribute("class",".sizeImage");
+    }
+}
 
+addElementsMAin(collection);
+sizeImage();
 
