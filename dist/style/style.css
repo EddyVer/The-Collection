@@ -2,6 +2,44 @@ body {
   margin: 50px;
 }
 
+.imageSize {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fire {
+  background-color: rgb(255, 166, 0);
+}
+
+.water {
+  background-color: rgb(35, 82, 222);
+}
+
+.grass {
+  background-color: rgb(23, 153, 23);
+}
+
+.poison {
+  background-color: rgb(109, 4, 201);
+}
+
+.normal {
+  background-color: gray;
+}
+
+.fly {
+  background-color: lightblue;
+}
+
+.insect {
+  background-color: rgb(51, 92, 51);
+}
+
+.elect {
+  background-color: rgb(206, 206, 3);
+}
+
 header {
   display: grid;
   grid-template-columns: 50% 50%;

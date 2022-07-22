@@ -51,7 +51,7 @@ const collection = [
     },
     {
         name:"Pidgeot",
-        genre:["Normal","Flying"],
+        genre:["Flying","Normal"],
         weakness:["Electric","Ice","Rock"],
         evolution:"Evolution de Pidgeotte",
         image:"./accets/018.png",
@@ -71,7 +71,7 @@ const collection = [
     },
     {
         name:"Fearow",
-        genre:["Normal","Flying"],
+        genre:["Flying","Normal"],
         weakness:["Electric","Ice","Rock"],
         evolution:"Evolution de Spearow",
         image:"./accets/022.png",
@@ -119,7 +119,21 @@ function addImageTop(Array){
    const addPrincImage = document.createElement("img");
     addPrincImage.src = Array.image;
     addPrincImage.alt = `image de ${Array.name}`;
-    return addPrincImage
+    
+
+    switch(Array.genre[0]){
+        case "Fire" : addPrincImage.setAttribute("class","fire imageSize"); break;
+        case "Grass" :addPrincImage.setAttribute("class","grass imageSize"); break;
+        case "Water": addPrincImage.setAttribute("class","water imageSize"); break;
+        case "Normal": addPrincImage.setAttribute("class","normal imageSize");break;
+        case "Poison":addPrincImage.setAttribute("class","poison imageSize");break;
+        case "Flying": addPrincImage.setAttribute("class","fly imageSize");break;
+        case "Bug": addPrincImage.setAttribute("class","insect imageSize");break;
+        case "Electric": addPrincImage.setAttribute("class"," elect imageSize");break;
+    }
+       
+
+     return addPrincImage;
 }
 
 function addType(Array){
@@ -176,11 +190,30 @@ function addLink(Array){
 
 function sizeImage(){
     const selectImage = document.querySelectorAll("img");
+
     for(let i = 0; i < selectImage.length; i++){
-        selectImage[i].setAttribute("class",".sizeImage");
+        selectImage[i].classList.add("class","imageSize ");
+
     }
+}
+
+function imageBackground(Array){
+//     const selectArticle = document.querySelectorAll("article");
+//     const imageSetBackground = selectArticle.querySelector("img");
+    for(let i = 0; i < Array.length; i++){
+        console.log(Array[i].genre[0]);
+        switch(Array[i].genre[0]){
+            case "Fire" : Array[i].image.setAttribute("class","fire"); break;
+            //case "Grass" :imageSetBackground.setAttribute("class","grass"); break;
+        }
+    }
+}
+function test(){
+    document.body.setAttribute("class",'water');
 }
 
 addElementsMAin(collection);
 sizeImage();
+//imageBackground(collection);
+//test();
 

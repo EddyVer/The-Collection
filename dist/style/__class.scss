@@ -1,9 +1,34 @@
 body{
     margin: 50px;
+    
 }
 
 .imageSize{
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
+}
+.fire{
+    background-color: $colorFire;
+}
+.water{
+    background-color: $colorWater;
+}
+.grass{
+    background-color: $colorGrass;
+}
+.poison{
+    background-color: $colorPoison;
+}
+.normal{
+    background-color: $colorNormal;
+}
+.fly{
+    background-color: $colorFly;
+}
+.insect{
+    background-color: $colorInsect;
+}
+.elect{
+    background-color: $colorElec;
 }
