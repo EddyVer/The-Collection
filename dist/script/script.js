@@ -2,7 +2,7 @@ const collection = [
     {
         name:"Venusaur",
         genre:["Grass","Poison"],
-        weakness:["Fire","Psychis-c","Flying","Ice"],
+        weakness:["Fire","Psychic","Flying","Ice"],
         evolution:"Evolution de Ivysaur",
         image:"./accets/003.png",
         imageSousEvo :"./accets/002.png",
@@ -123,16 +123,9 @@ function addImageTop(Array){
    const addPrincImage = document.createElement("img");
     addPrincImage.src = Array.image;
     addPrincImage.alt = `image de ${Array.name}`;
-    switch(Array.genre[0]){
-        case "Fire" : addPrincImage.setAttribute("class","fire imageSize"); break;
-        case "Grass" :addPrincImage.setAttribute("class","grass imageSize"); break;
-        case "Water": addPrincImage.setAttribute("class","water imageSize"); break;
-        case "Normal": addPrincImage.setAttribute("class","normal imageSize");break;
-        case "Poison":addPrincImage.setAttribute("class","poison imageSize");break;
-        case "Flying": addPrincImage.setAttribute("class","fly imageSize");break;
-        case "Bug": addPrincImage.setAttribute("class","insect imageSize");break;
-        case "Electric": addPrincImage.setAttribute("class"," elect imageSize");break;
-    }
+    addPrincImage.classList.add("imageSize");
+    backgroundType(Array.genre[0],addPrincImage);
+
     return addPrincImage;
 }
 
@@ -140,13 +133,14 @@ function addType(Array){
     const addDiv = document.createElement("div");
     addDiv.setAttribute("class","type");
     const addH3 = document.createElement("h4");
-    
     addH3.innerText = "Type :";
+    addH3.classList.add(`posElementType${Array.genre.length}`);
     addDiv.appendChild(addH3);
     for(let i = 0; i < Array.genre.length; i++){
         const addElementListe = document.createElement("p");
         addElementListe.innerText = Array.genre[i];
-        addElementListe.setAttribute("class",`posElementType${i}`),
+        addElementListe.setAttribute("class",`posElementType${i}`);
+        backgroundType(Array.genre[i],addElementListe);
         addDiv.appendChild(addElementListe);
     }
     return addDiv;
@@ -157,10 +151,12 @@ function addWeakness(Array){
     addDiv.setAttribute("class","weakness");
     const addH3 = document.createElement("h4");
     addH3.innerText = "Weakness :";
+    //addH3.classList.add(`posElementType${Array.genre.length}`);
     addDiv.appendChild(addH3);
    for(let i = 0; i < Array.weakness.length; i++){
         const addweakness = document.createElement("p");
         addweakness.setAttribute("class",`posElementWeakness${i}`);
+        backgroundType(Array.weakness[i], addweakness);
         addweakness.innerText = Array.weakness[i];
         addDiv.appendChild(addweakness);
     }
@@ -204,21 +200,31 @@ function addLink(Array){
     return addlink;
 }
 
-function sizeImage(){
-    const selectImage = document.querySelectorAll("img");
-    for(let i = 0; i < selectImage.length; i++){
-        selectImage[i].classList.add("imageSize");
-    }
-    return selectImage;
-}
+function backgroundType(Array,element){
+    switch(Array){
+        case "Fire" : element.classList.add("fire"); break;
+        case "Grass" :element.classList.add("grass"); break;
+        case "Water": element.classList.add("water"); break;
+        case "Normal": element.classList.add("normal");break;
+        case "Poison":element.classList.add("poison");break;
+        case "Flying": element.classList.add("fly");break;
+        case "Bug": element.classList.add("insect");break;
+        case "Electric": element.classList.add("elect");break;
+        case "Psychic": element.classList.add("psy");break;
+        case "Rock": element.classList.add("rock");break; 
+        case "Ice" :element.classList.add("ice");break;
+        case "Fighting": element.classList.add("fight");break;
+        case "Ground": element.classList.add("ground");break;
 
+    }
+}
 
 function test(){
     document.body.setAttribute("class",'water');
 }
 
 addElementsMAin(collection);
-//sizeImage();
+
 //imageBackground(collection);
 //test();
 
