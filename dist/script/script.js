@@ -4,6 +4,7 @@ const collection = [
         genre:["Grass","Poison"],
         weakness:["Fire","Psychic","Flying","Ice"],
         evolution:"Evolution de Ivysaur",
+        sousEvo:"Ivysaur",
         image:"./accets/003.png",
         imageSousEvo :"./accets/002.png",
         descrition:"ts plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight. ",
@@ -14,6 +15,7 @@ const collection = [
         genre:["Fire","Flying"],
         weakness:["Water","Electric","Rock"] ,
         evolution:"Evolution de Chameleon",
+        sousEvo:"Chameleon",
         image:"./accets/006.png",
         imageSousEvo :"./accets/005.png",
         descrition:"It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.",
@@ -24,6 +26,7 @@ const collection = [
         genre:["Water"],
         weakness:["Grass","Electric"],
         evolution:"Evolution de Wartortle",
+        sousEvo:"Wartortle",
         image:"./accets/009.png",
         imageSousEvo :"./accets/008.png",
         descrition:"It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell. ",
@@ -34,6 +37,7 @@ const collection = [
         genre:["Bug","Flying"],
         weakness:["Fire","Flying","Electric","Ice","Rock"],
         evolution:"Evolution de Metapod",
+        sousEvo:"Metapod",
         image:"./accets/012.png",
         imageSousEvo :"./accets/011.png",
         descrition:" In battle, it flaps its wings at great speed to release highly toxic dust into the air.",
@@ -44,6 +48,7 @@ const collection = [
         genre:["Bug","Poison"],
         weakness:["Fire","Psychic","Flying","Rock"],
         evolution:"Evolution de Kakuna",
+        sousEvo:"Kakuna",
         image:"./accets/015.png",
         imageSousEvo :"./accets/014.png",
         descrition:"It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.",
@@ -54,6 +59,7 @@ const collection = [
         genre:["Flying","Normal"],
         weakness:["Electric","Ice","Rock"],
         evolution:"Evolution de Pidgeotte",
+        sousEvo:"Pidgeotte",
         image:"./accets/018.png",
         imageSousEvo :"./accets/017.png",
         descrition:"This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.",
@@ -63,7 +69,8 @@ const collection = [
         name:"Raticate",
         genre:["Normal"],
         weakness:["Fighting"],
-        evolution:"Evolution de Rattata ",
+        evolution:"Evolution de Rattata",
+        sousEvo:"Rattata",
         image:"./accets/020.png",
         imageSousEvo :"./accets/019.png",
         descrition:"Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.",
@@ -74,6 +81,7 @@ const collection = [
         genre:["Flying","Normal"],
         weakness:["Electric","Ice","Rock"],
         evolution:"Evolution de Spearow",
+        sousEvo:"Spearow",
         image:"./accets/022.png",
         imageSousEvo :"./accets/021.png",
         descrition:"A Pokémon that dates back many years. If it senses danger, it flies high and away, instantly.",
@@ -84,6 +92,7 @@ const collection = [
         genre:["Poison"],
         weakness:["Psychic","Ground"],
         evolution:"Evolution de Ekans",
+        sousEvo:"Ekans",
         image:"./accets/024.png",
         imageSousEvo :"./accets/023.png",
         descrition:"The frightening patterns on its belly have been studied. Six variations have been confirmed.",
@@ -93,7 +102,8 @@ const collection = [
         name:"Raichu",
         genre:["Electric"],
         weakness:["Ground"],
-        evolution:"Evolution de Pickachu",
+        evolution:"Evolution de Pikachu",
+        sousEvo:"Pikachu",
         image:"./accets/026.png",
         imageSousEvo :"./accets/025.png",
         descrition:"Its long tail serves as a ground to protect itself from its own high-voltage power.",
@@ -133,13 +143,13 @@ function addType(Array){
     const addDiv = document.createElement("div");
     addDiv.setAttribute("class","type");
     const addH3 = document.createElement("h4");
+    addH3.classList.add("posElementType0");
     addH3.innerText = "Type :";
-    addH3.classList.add(`posElementType${Array.genre.length}`);
     addDiv.appendChild(addH3);
     for(let i = 0; i < Array.genre.length; i++){
         const addElementListe = document.createElement("p");
         addElementListe.innerText = Array.genre[i];
-        addElementListe.setAttribute("class",`posElementType${i}`);
+        addElementListe.setAttribute("class",`posElementType${i+1}`);
         backgroundType(Array.genre[i],addElementListe);
         addDiv.appendChild(addElementListe);
     }
@@ -155,7 +165,7 @@ function addWeakness(Array){
     addDiv.appendChild(addH3);
    for(let i = 0; i < Array.weakness.length; i++){
         const addweakness = document.createElement("p");
-        addweakness.setAttribute("class",`posElementWeakness${i}`);
+        addweakness.setAttribute("class",`posElementWeakness${[i]}`);
         backgroundType(Array.weakness[i], addweakness);
         addweakness.innerText = Array.weakness[i];
         addDiv.appendChild(addweakness);
@@ -165,14 +175,19 @@ function addWeakness(Array){
 
 function addSousEvo(Array){
     const addDiv = document.createElement("div");
+    addDiv.classList.add("elementSousEvo");
     const addparagraph = document.createElement("p");
-    addparagraph.innerText = Array.evolution;
+    addparagraph.classList.add("posElementSousEvo0");
+    const tagU = document.createElement("u");
+    addparagraph.appendChild(tagU);
+    tagU.innerText = `${Array.evolution} :`;
     addDiv.appendChild(addparagraph);
     const addImage = document.createElement("img");
+    addImage.classList.add("posElementSousEvo");
     addImage.src = Array.imageSousEvo;
-    addImage.alt = "";
-    addImage.width = "50";
-    addImage.height = "50"
+    addImage.alt = `image de ${Array.sousEvo}`;
+    addImage.width = "60";
+    addImage.height = "60";
     addDiv.appendChild(addImage);
     return addDiv;
 }
@@ -219,12 +234,7 @@ function backgroundType(Array,element){
     }
 }
 
-function test(){
-    document.body.setAttribute("class",'water');
-}
-
 addElementsMAin(collection);
 
-//imageBackground(collection);
-//test();
+
 

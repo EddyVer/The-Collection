@@ -1,49 +1,20 @@
-body{
-    margin: 50px;
-    
-}
+body{margin: 50px;}
 
 .imageSize{
     width: 100%;
     height: auto;
     display: block;
 }
-.fire{
-    background-color: $colorFire;
-}
-.water{
-    background-color: $colorWater;
-}
-.grass{
-    background-color: $colorGrass;
-}
-.poison{
-    background-color: $colorPoison;
-}
-.normal{
-    background-color: $colorNormal;
-}
-.fly{
-    background-color: $colorFly;
-}
-.insect{
-    background-color: $colorInsect;
-}
-.elect{
-    background-color: $colorElec;
-}
-.psy{
-    background-color: $colorPsy;
-}
-.rock{
-    background-color: $colorRock;
-}
-.ice{
-    background-color: $colocIce;
-}
-.fight{
-    background-color: $colorFighting;
-}
-.ground{
-    background-color: $colorGround;
-}
+.fire{background-color: $colorFire;}
+.water{background-color: $colorWater;}
+.grass{background-color: $colorGrass;}
+.poison{background-color: $colorPoison;}
+.normal{background-color: $colorNormal;}
+.fly{background-color: $colorFly;}
+.insect{background-color: $colorInsect;}
+.elect{background-color: $colorElec;}
+.psy{background-color: $colorPsy;}
+.rock{background-color: $colorRock;}
+.ice{background-color: $colocIce;}
+.fight{background-color: $colorFighting;}
+.ground{background-color: $colorGround;}
