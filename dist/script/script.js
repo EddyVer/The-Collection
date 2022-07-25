@@ -111,7 +111,7 @@ const collection = [
     },
 ];
 const imgLink = "./accets/pdx.png";
-
+//hind card with others function
 function addElementsMAin(Array){
     const selectMain = document.querySelector("main");
     
@@ -129,7 +129,7 @@ function addElementsMAin(Array){
     }
 
 }
-
+//hind main card image + backgroung with function backgroundType(first Type)
 function addImageTop(Array){
    const addPrincImage = document.createElement("img");
     addPrincImage.src = Array.image;
@@ -139,7 +139,7 @@ function addImageTop(Array){
 
     return addPrincImage;
 }
-
+//hind type + backgroung with function backgroundType(each type)
 function addType(Array){
     const addDiv = document.createElement("div");
     addDiv.setAttribute("class","type");
@@ -155,7 +155,7 @@ function addType(Array){
     }
     return addDiv;
 }
-
+//hind weakness + backgroung with function backgroundType(each weakness type)
 function addWeakness(Array){
     const addDiv = document.createElement("div");
     addDiv.setAttribute("class","weakness");
@@ -171,7 +171,7 @@ function addWeakness(Array){
     }
     return addDiv;
 }
-
+//hind text + image/image size 
 function addSousEvo(Array){
     const addDiv = document.createElement("div");
     addDiv.classList.add("elementSousEvo");
@@ -190,7 +190,7 @@ function addSousEvo(Array){
     addDiv.appendChild(addImage);
     return addDiv;
 }
-
+//hind name + descript
 function addDescrip(Array){
     const adddiv = document.createElement("div");
     adddiv.classList.add("descripPokemon");
@@ -212,6 +212,8 @@ function addTagHr(){
     return addsepar;
 
 }
+
+//hind link + image link
 function addLink(Array){
     const addlink = document.createElement("a");
     addlink.classList.add("posLink");
@@ -225,6 +227,7 @@ function addLink(Array){
     return addlink;
 }
 
+//Set Background according to type (element = type or weakness)
 function backgroundType(Array,element){
     switch(Array){
         case "Fire" : element.classList.add("fire"); break;
