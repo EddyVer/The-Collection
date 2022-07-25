@@ -88,6 +88,7 @@ body {
 
 .descripPokemon {
   margin-left: 10px;
+  margin-top: 5px;
   display: grid;
   grid-template-rows: 10% 90%;
   grid-template-columns: 1fr;
@@ -154,12 +155,16 @@ main {
   display: grid;
   grid-template-columns: 75% 25%;
   align-items: center;
-  justify-items: center;
   margin-left: 10px;
+}
+
+.posElementSousEvo0 {
+  justify-self: flex-start;
 }
 
 .posElementSousEvo {
   grid-area: 1/2/2/3;
+  justify-self: flex-start;
   margin-right: 10px;
 }
 
