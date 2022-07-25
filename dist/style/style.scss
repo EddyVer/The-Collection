@@ -58,6 +58,7 @@ main{
 }
 
 @media only screen and (max-width:745px) {
+        body{margin: 20px; }
     header{
         display: grid;
         grid-template-columns: 50% 50%;
