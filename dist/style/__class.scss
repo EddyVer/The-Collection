@@ -4,6 +4,11 @@ body{margin: 50px;}
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 10px;
+}
+.styleHr{
+     width: 90%;
+     align-self: flex-end;
 }
 .fire{background-color: $colorFire;}
 .water{background-color: $colorWater;}
@@ -18,3 +23,7 @@ body{margin: 50px;}
 .ice{background-color: $colocIce;}
 .fight{background-color: $colorFighting;}
 .ground{background-color: $colorGround;}
+.styleElement{
+    margin-left: 10px;
+    border-radius: 3px;
+}

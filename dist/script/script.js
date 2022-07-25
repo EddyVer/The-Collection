@@ -7,7 +7,7 @@ const collection = [
         sousEvo:"Ivysaur",
         image:"./accets/003.png",
         imageSousEvo :"./accets/002.png",
-        descrition:"ts plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight. ",
+        descrition:"Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight. ",
         link:"https://www.pokemon.com/us/pokedex/venusaur"
     },
     {
@@ -118,12 +118,13 @@ function addElementsMAin(Array){
     for(let x =0; x < Array.length; x++){
         const addArticle = document.createElement("article");
         selectMain.appendChild(addArticle);
-        addArticle.setAttribute("class",`Card ${Array[x].name}`);
+        addArticle.setAttribute("class","Card");
         addArticle.appendChild(addImageTop(Array[x]));
         addArticle.appendChild(addType(Array[x]));
         addArticle.appendChild(addWeakness(Array[x]));
         addArticle.appendChild(addSousEvo(Array[x]));
         addArticle.appendChild(addDescrip(Array[x]));
+        addArticle.appendChild(addTagHr());
         addArticle.appendChild(addLink(Array[x]));
     }
 
@@ -143,13 +144,12 @@ function addType(Array){
     const addDiv = document.createElement("div");
     addDiv.setAttribute("class","type");
     const addH3 = document.createElement("h4");
-    addH3.classList.add("posElementType0");
     addH3.innerText = "Type :";
     addDiv.appendChild(addH3);
     for(let i = 0; i < Array.genre.length; i++){
         const addElementListe = document.createElement("p");
         addElementListe.innerText = Array.genre[i];
-        addElementListe.setAttribute("class",`posElementType${i+1}`);
+        addElementListe.setAttribute("class","styleElement");
         backgroundType(Array.genre[i],addElementListe);
         addDiv.appendChild(addElementListe);
     }
@@ -161,11 +161,10 @@ function addWeakness(Array){
     addDiv.setAttribute("class","weakness");
     const addH3 = document.createElement("h4");
     addH3.innerText = "Weakness :";
-    //addH3.classList.add(`posElementType${Array.genre.length}`);
     addDiv.appendChild(addH3);
    for(let i = 0; i < Array.weakness.length; i++){
         const addweakness = document.createElement("p");
-        addweakness.setAttribute("class",`posElementWeakness${[i]}`);
+        addweakness.setAttribute("class","styleElement");
         backgroundType(Array.weakness[i], addweakness);
         addweakness.innerText = Array.weakness[i];
         addDiv.appendChild(addweakness);
@@ -194,17 +193,28 @@ function addSousEvo(Array){
 
 function addDescrip(Array){
     const adddiv = document.createElement("div");
+    adddiv.classList.add("descripPokemon");
     const addName = document.createElement("h3");
-    addName.innerText = Array.name;
+    addName.classList.add("posDescripElement0");
+    const addClassU = document.createElement("u");
+    addName.appendChild(addClassU);
+    addClassU.innerText = Array.name;
     adddiv.appendChild(addName);
     const addParagraph = document.createElement("p");
+    addParagraph.classList.add("posDescripElement1");
     addParagraph.innerText = Array.descrition;
     adddiv.appendChild(addParagraph);
     return adddiv;
 }
+function addTagHr(){
+    const addsepar = document.createElement("hr");
+    addsepar.classList.add("styleHr");
+    return addsepar;
 
+}
 function addLink(Array){
     const addlink = document.createElement("a");
+    addlink.classList.add("posLink");
     const imagelink = document.createElement("img");
     imagelink.src=imgLink;
     imagelink.alt = "image pokedex";
