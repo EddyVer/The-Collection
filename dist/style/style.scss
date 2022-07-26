@@ -28,7 +28,8 @@ main{
     grid-template-columns: 25% 25% 25% 25% ;
     grid-template-rows: auto; 
 }
-.Card{
+.Card:hover{
+    transform: scale(1.2);
     background-color:rgb(235, 230, 230);
     margin: 10px;
     border: 2px solid lightgray;
