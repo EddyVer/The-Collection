@@ -136,7 +136,7 @@ main {
   grid-template-rows: auto;
 }
 
-.Card:hover {
+.Card {
   
   background-color: rgb(235, 230, 230);
   margin: 10px;
